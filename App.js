@@ -6,7 +6,7 @@ const { render } = require('ejs');
 const blogRoutes = require('./routes/blogroutes')
 
 // get the port number
-var port = process.env.PORT || 8080
+let port = process.env.PORT || 8080
 
 // express app
 const app = express();
