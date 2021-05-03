@@ -1,8 +1,8 @@
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+<%- include("../partials/head.ejs") %>
 
 <body>
-  <%- include("./partials/nav.ejs") %>
+  <%- include("../partials/nav.ejs") %>
 
   <div class="details content">
     <h2><%= blog.title %></h2>
@@ -12,16 +12,16 @@
     <a class="delete" data-doc="<%= blog._id %>">delete</a>
   </div>
 
-  <%- include("./partials/footer.ejs") %>
+  <%- include("../partials/footer.ejs") %>
     <script>
       const trashcan = document.querySelector('a.delete');
       trashcan.addEventListener('click',(e)=>{
           const endpoint = `/blogs/${trashcan.dataset.doc}`;
-          fetch(endpoint, {
+          fetch(endpoint, { // Sending a DELETE request to server with fetch
               method: 'DELETE'
           })
-          .then((response)=>response.json())
-          .then((data)=> window.location.href = data.redirect)
+          .then((response)=>response.json()) // to get the redirect property
+          .then((data)=> window.location.href = data.redirect) // go to the redirect
           .catch(err => console.log(err));
       })
     </script>
