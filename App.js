@@ -1,9 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const {dbURI} = require('./config');
 const { render } = require('ejs');
 const blogRoutes = require('./routes/blogroutes')
+const {dbURI} = process.env.dbURI ? null : require('./config');
+
+//
 
 // get the port number
 let port = process.env.PORT || 8080
