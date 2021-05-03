@@ -3,8 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const { render } = require('ejs');
 const blogRoutes = require('./routes/blogroutes')
-// const {dbURI} = process.env.dbURI ? process.env.dbURI : require('./config');
-const dbURI = require('./config');
+const dbURI = process.env.dbURI ? process.env.dbURI : require('./config');
 
 // get the port number
 let port = process.env.PORT || 8080
